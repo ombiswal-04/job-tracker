@@ -7,7 +7,7 @@ The platform supports secure authentication, resume uploads, application trackin
 ## 🌐 Live Demo
 
 Hosted on:
-🔗 **Coming Soon** (Vercel / Render)
+🔗 **[CareerSetu.in](https://ombiswal-04.github.io/CareerSetu.in/)** (GitHub Pages)
 
 ## ⭐ Like the Project?
 
@@ -35,7 +35,7 @@ It motivates me to keep improving the project and adding more features.
 - **Multer** (Resume Uploads)
 
 ### Hosting
-- **Frontend**: Vercel / Netlify
+- **Frontend**: GitHub Pages
 - **Backend**: Render / Railway / Heroku
 
 ## 🚀 Features
