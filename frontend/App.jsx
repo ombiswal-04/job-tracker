@@ -61,7 +61,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <BrowserRouter>
+        <BrowserRouter basename='/CareerSetu.in'>
           <AppLayout />
         </BrowserRouter>
       </AuthProvider>
