@@ -56,16 +56,10 @@ export default function JobCard({ job, isApplied, onApply }) {
         <button
           type="button"
           className={`job-card__apply-btn ${isApplied ? 'job-card__apply-btn--applied' : ''}`}
-          onClick={() => {
-            if (!isInternal) {
-              if (applyUrl) window.open(applyUrl, '_blank')
-            } else {
-              onApply && onApply(job._id)
-            }
-          }}
-          disabled={isApplied || (!isInternal && !applyUrl)}
+          onClick={() => onApply && onApply(job._id)}
+          disabled={isApplied}
         >
-          {!isInternal ? `Apply on ${displaySource}` : (isApplied ? 'Applied' : 'Apply Now')}
+          {isApplied ? 'Applied' : 'Apply Now'}
         </button>
       </div>
     </article>
