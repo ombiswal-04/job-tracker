@@ -1,41 +1,65 @@
-# Job Tracker
+# CareerSetu.in
 
-A comprehensive MERN stack application for tracking job applications, managing job postings, and connecting talents with opportunities. This platform serves both job seekers and administrators with dedicated dashboards and functionalities.
+CareerSetu.in is a modern full-stack job portal web application built using the MERN stack. It enables job seekers to discover and track job applications while allowing administrators to manage job postings, applicants, and hiring workflows through role-based dashboards.
 
-## 🚀 Features
+The platform supports secure authentication, resume uploads, application tracking, and real-world recruitment workflows, making it suitable for both learning and portfolio showcasing.
 
-### For Users (Job Seekers)
-- **Browse Jobs**: View available job listings with filtering options.
-- **Job Application**: Apply to jobs directly or via external links.
-- **My Work**: Track status of applied jobs.
-- **Profile Management**: Update user profile and preferences.
-- **Authentication**: Secure Login and Registration.
+## 🌐 Live Demo
 
-### For Admins
-- **Admin Dashboard**: Overview of platform statistics.
-- **Job Management**: Create, Edit, and Delete job postings.
-- **Talent Management**: Browse and manage registered talents.
-- **Hiring**: Manage hiring processes.
+Hosted on:
+🔗 **Coming Soon** (Vercel / Render)
 
-## 🛠️ Tech Stack
+## ⭐ Like the Project?
+
+If you find this project useful or interesting, consider starring 🌟 the repository to show your support.
+It motivates me to keep improving the project and adding more features.
+👉 [Give it a Star on GitHub](https://github.com/ombiswal-04/job-tracker)
+
+## 📦 Tech Stack
 
 ### Frontend
 - **React** (Vite)
-- **React Router** for navigation
-- **Context API** for state management (Auth, Theme)
-- **CSS** for styling
+- **React Router DOM**
+- **Context API** (Auth & Theme)
+- **CSS**
 
 ### Backend
-- **Node.js** & **Express.js**
+- **Node.js**
+- **Express.js**
 - **MongoDB** with **Mongoose**
-- **JWT** for Authentication
-- **Multer** for file uploads
 
-## 📦 Installation & Setup
+### Authentication
+- **JWT-based Authentication**
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) installed
-- [MongoDB](https://www.mongodb.com/) installed or a MongoDB Atlas connection string
+### File Upload
+- **Multer** (Resume Uploads)
+
+### Hosting
+- **Frontend**: Vercel / Netlify
+- **Backend**: Render / Railway / Heroku
+
+## 🚀 Features
+
+### 🧾 User Authentication
+- Signup and login
+- JWT-based secure authentication
+- Role-based access (User / Admin)
+
+### 👤 Job Seekers
+- Browse and filter job listings
+- Apply to jobs (internal or external links)
+- Track application status (Applied, Interview, Accepted, Rejected)
+- Upload and manage resumes
+- Manage profile and preferences
+
+### 🛠️ Admin
+- Admin dashboard overview
+- Create, update, and delete job postings
+- View and manage applicants
+- Schedule interviews
+- Control hiring workflows
+
+## ⚙️ Getting Started Locally
 
 ### 1. Clone the Repository
 ```bash
@@ -43,54 +67,96 @@ git clone https://github.com/ombiswal-04/job-tracker.git
 cd job-tracker
 ```
 
-### 2. Backend Setup
-Navigate to the backend directory and install dependencies:
+### 2. Install Dependencies
+
+**Backend**
 ```bash
 cd backend
 npm install
 ```
 
-Create a `.env` file in the `backend` directory with the following variables:
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-```
-
-Start the backend server:
+**Frontend**
 ```bash
-npm start
-```
-The server will run on `http://localhost:5000`.
-
-### 3. Frontend Setup
-Open a new terminal, navigate to the frontend directory, and install dependencies:
-```bash
-cd frontend
+cd ../frontend
 npm install
 ```
 
-Create a `.env` file in the `frontend` directory (if required for API URL configuration):
+### 3. Create Environment Files
+
+✅ **Backend .env** (inside `/backend`)
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+✅ **(Optional) Frontend .env** (inside `/frontend`)
 ```env
 VITE_API_URL=http://localhost:5000
 ```
-*(Note: Check file `src/config/api.js` or similar if the base URL is hardcoded or Env variable driven)*
+➡️ ***Make sure your MongoDB database is running (local or Atlas).***
 
-Start the frontend development server:
+### 4. Start the App
+
+**Run Backend**
 ```bash
+cd backend
+npm start
+```
+
+**Run Frontend**
+```bash
+cd ../frontend
 npm run dev
 ```
-The application will run on `http://localhost:5173` (or the port shown in your terminal).
 
-## 🚀 Deployment
+The app will run on:
+- **Frontend**: `http://localhost:5173`
+- **Backend**: `http://localhost:5000`
 
-- **Frontend**: Can be deployed on Vercel, Netlify, or similar platforms.
-- **Backend**: Can be deployed on Render, Railway, or Heroku.
+## 🌐 Deployment Notes
 
-## 🤝 Contributing
+### ⚙️ CORS Settings (Backend – Production)
+```javascript
+app.use(cors({
+  origin: "https://your-frontend-url",
+  credentials: true
+}));
+```
 
-Contributions, issues, and feature requests are welcome!
+### 🔐 JWT Usage
+- Tokens are generated on login
+- Protected routes for users and admins
+- Role-based authorization enforced on backend
 
-## 📄 License
+## 📁 Project Structure
 
-This project is licensed under the ISC License.
+```
+CareerSetu/
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── uploads/
+│   └── server.js
+│
+├── frontend/
+│   ├── components/
+│   ├── pages/
+│   ├── context/
+│   └── App.jsx
+│
+├── README.md
+```
+
+## 👥 Author
+
+Built by **Om Biswal** 💻
+Open to contributions, suggestions, and collaboration.
+
+## 📝 License
+
+This project is licensed under the **ISC License**.
+You are free to use, modify, and distribute this software under the terms of the license.
