@@ -7,7 +7,7 @@ The platform supports secure authentication, resume uploads, application trackin
 ## 🌐 Live Demo
 
 Hosted on:
-🔗 **[CareerSetu.in](https://ombiswal-04.github.io/CareerSetu.in/)** (GitHub Pages)
+🔗 **[CareerSetu.in](https://careersetu-in.vercel.app)** (Vercel - Full Stack)
 
 ## ⭐ Like the Project?
 
