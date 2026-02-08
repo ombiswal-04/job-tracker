@@ -16,13 +16,13 @@ function JobsContent() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const jobsRes = await API.get('/api/jobs', {
+                const jobsRes = await API.get('/jobs', {
                     headers: user ? { Authorization: `Bearer ${user.token}` } : {}
                 });
                 setJobs(jobsRes.data);
 
                 if (user) {
-                    const appsRes = await API.get('/api/applications/my-work', {
+                    const appsRes = await API.get('/applications/my-work', {
                         headers: { Authorization: `Bearer ${user.token}` }
                     });
                     const ids = new Set(appsRes.data.map(app => app.jobId._id || app.jobId));
@@ -49,7 +49,7 @@ function JobsContent() {
             return;
         }
         try {
-            await API.post(`/api/applications/${jobId}`, {}, {
+            await API.post(`/applications/${jobId}`, {}, {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
             setAppliedJobIds(prev => new Set(prev).add(jobId));

@@ -15,7 +15,7 @@ function HireContent() {
 
     const fetchApplications = async () => {
         try {
-            const { data } = await API.get('/api/applications/admin/all', {
+            const { data } = await API.get('/applications/admin/all', {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
             setApplications(data);
@@ -32,7 +32,7 @@ function HireContent() {
 
     const handleStatusUpdate = async (id, status) => {
         try {
-            await API.put(`/api/applications/admin/${id}/status`, { status }, {
+            await API.put(`/applications/admin/${id}/status`, { status }, {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
             fetchApplications();
@@ -44,7 +44,7 @@ function HireContent() {
     const handleScheduleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await API.put(`/api/applications/admin/${scheduleData.id}/schedule`, {
+            await API.put(`/applications/admin/${scheduleData.id}/schedule`, {
                 interviewDate: scheduleData.date,
                 interviewTime: scheduleData.time
             }, {

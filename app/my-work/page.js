@@ -16,7 +16,7 @@ function MyWorkContent() {
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const { data } = await API.get('/api/applications/my-work', {
+                const { data } = await API.get('/applications/my-work', {
                     headers: { Authorization: `Bearer ${user.token}` }
                 });
                 setApplications(data);

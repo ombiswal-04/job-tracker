@@ -18,7 +18,7 @@ function AdminDashboardContent() {
 
     const fetchJobs = async () => {
         try {
-            const { data } = await API.get('/api/jobs', {
+            const { data } = await API.get('/jobs', {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
             setPostedJobs(data);
@@ -35,13 +35,13 @@ function AdminDashboardContent() {
         e.preventDefault();
         try {
             if (editJobId) {
-                await API.put(`/api/jobs/${editJobId}`, jobData, {
+                await API.put(`/jobs/${editJobId}`, jobData, {
                     headers: { Authorization: `Bearer ${user.token}` }
                 });
                 alert('Job Updated Successfully!');
                 setEditJobId(null);
             } else {
-                await API.post('/api/jobs', jobData, {
+                await API.post('/jobs', jobData, {
                     headers: { Authorization: `Bearer ${user.token}` }
                 });
                 alert('Job Posted Successfully!');
@@ -77,7 +77,7 @@ function AdminDashboardContent() {
     const handleDeleteJob = async (jobId) => {
         if (window.confirm('Are you sure you want to delete this job?')) {
             try {
-                await API.delete(`/api/jobs/${jobId}`, {
+                await API.delete(`/jobs/${jobId}`, {
                     headers: { Authorization: `Bearer ${user.token}` }
                 });
                 alert('Job Deleted Successfully');

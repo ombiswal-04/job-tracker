@@ -23,12 +23,12 @@ function MyJobsContent() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const jobsRes = await API.get('/api/jobs', {
+                const jobsRes = await API.get('/jobs', {
                     headers: { Authorization: `Bearer ${user.token}` }
                 });
                 setJobs(jobsRes.data);
 
-                const appsRes = await API.get('/api/applications/my-work', {
+                const appsRes = await API.get('/applications/my-work', {
                     headers: { Authorization: `Bearer ${user.token}` }
                 });
                 const ids = new Set(appsRes.data.map(app => app.jobId._id || app.jobId));
@@ -75,7 +75,7 @@ function MyJobsContent() {
         setMessage('');
 
         try {
-            const { data } = await API.post('/api/upload', formData, {
+            const { data } = await API.post('/upload', formData, {
                 headers: {
                     Authorization: `Bearer ${user.token}`
                 }
@@ -100,7 +100,7 @@ function MyJobsContent() {
 
     const handleApply = async (jobId) => {
         try {
-            await API.post(`/api/applications/${jobId}`, {}, {
+            await API.post(`/applications/${jobId}`, {}, {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
             setAppliedJobIds(prev => new Set(prev).add(jobId));
@@ -113,7 +113,7 @@ function MyJobsContent() {
         if (!window.confirm("Are you sure you want to remove your resume?")) return;
         setUploading(true);
         try {
-            await API.delete('/api/upload', {
+            await API.delete('/upload', {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
             updateUser({ resumeUrl: null });
